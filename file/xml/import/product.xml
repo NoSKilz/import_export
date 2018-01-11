@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.7.4
+- https://www.phpmyadmin.net
+-
+- Počítač: 127.0.0.1
+- Vytvořeno: Úte 09. led 2018, 22:14
+- Verze serveru: 10.1.26-MariaDB
+- Verze PHP: 7.1.9
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="project" collation="utf8_czech_ci" charset="utf8">
+            <pma:table name="product">
+                CREATE TABLE `product` (
+                  `product_id` int(11) NOT NULL AUTO_INCREMENT,
+                  `platform_name` varchar(20) COLLATE utf8_czech_ci NOT NULL,
+                  `genre_name` varchar(30) COLLATE utf8_czech_ci NOT NULL,
+                  `product_name` varchar(50) COLLATE utf8_czech_ci NOT NULL,
+                  `description` varchar(10000) COLLATE utf8_czech_ci NOT NULL,
+                  `picture` varchar(200) COLLATE utf8_czech_ci DEFAULT NULL,
+                  `price` int(11) NOT NULL,
+                  `uploaded` datetime NOT NULL,
+                  `sold` int(11) NOT NULL,
+                  `in_stock` int(11) NOT NULL,
+                  `delivery_time` int(11) DEFAULT NULL,
+                  PRIMARY KEY (`product_id`),
+                  KEY `fk_platform_product` (`platform_name`),
+                  KEY `fk_genre_product` (`genre_name`),
+                  CONSTRAINT `fk_genre_product` FOREIGN KEY (`genre_name`) REFERENCES `genre` (`genre_name`) ON DELETE CASCADE ON UPDATE CASCADE,
+                  CONSTRAINT `fk_platform_product` FOREIGN KEY (`platform_name`) REFERENCES `platform` (`platform_name`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Databáze: 'project'
+    -->
+    <database name="project">
+        <!-- Tabulka product -->
+        <table name="product">
+            <column name="product_id">1</column>
+            <column name="platform_name">PC</column>
+            <column name="genre_name">RPG</column>
+            <column name="product_name">Bound by Flame</column>
+            <column name="description">V Bound by Flame budete hrát za žoldáka posedlého plamenným démonem. Hráči, coby oběti démonického vlivu, si budou muset vybírat, jestli přijmou moc, kterou jim nabízí jejich hostitel, nebo si zachovají lidskost a budou se místo toho soustředit na hrdinské vlastnosti. Nepřátelé a nástrahy, čím dál tím děsivější a lítější, vás budou lákat, abyste získali více schopností tak, že část hrdinovy duše zaprodáte démonovi. Postup démonického vlivu se bude zobrazovat na těle hrdiny.V závislosti na volbách hráče a démonickém vlivu budou mít některé kapitoly odlišný scénář a nabídnou jiný zážitek, což hře dodává na znovuhratelnosti. Souboje v reálném čase jsou působivé a dynamické. Pokud hráč zahájí hru jen se základní znalostí souboje, ohnivé magie a zabijáctví, bude se moci specializovat odemykáním a vylepšováním mnoha schopností ze 3 různých vývojových větví. V Bound by Flame si hráči můžou svou postavu upravit podle svého. Během vytváření svého hrdiny si budou moci zvolit pohlaví a rysy v obličeji. To samozřejmě ovlivní i hrdinův démonický vliv. Bound by Flame také obsahuje systém výroby, který umožňuje vytvářet a vylepšovat vybavení včetně zbroje a zbraní. K hráčově výpravě se připojí také několik společníků a podle jeho činů se vztahy s nimi můžou vyvinout v přátelství, lásku či nenávist. Bestiář Bound by Flame je také ohromný. Hráči se budou muset utkat s mnoha působivými příšerami: stínoví draci, lišajové, nemrtví, ledové stvůry… epické střety vás čekají na každém rohu. Kterou cestou se vydáte? Budete prahnout po démonické moci a magii, s jejíž pomocí své nepřátele sežehnete plamenem, anebo dáte přednost bojovým dovednostem a srdnatosti?</column>
+            <column name="picture">boun(1).dbyflame.jpg</column>
+            <column name="price">199</column>
+            <column name="uploaded">2016-07-13 00:00:00</column>
+            <column name="sold">1503</column>
+            <column name="in_stock">7</column>
+            <column name="delivery_time">1</column>
+        </table>
+        <table name="product">
+            <column name="product_id">2</column>
+            <column name="platform_name">PC</column>
+            <column name="genre_name">RPG</column>
+            <column name="product_name">Blackguards</column>
+            <column name="description">Blackguards pokládá hráči jednoduchou otázku. Co by se stalo, kdyby osud světa v tísni nelpěl v rukou ctnostných rytířů v naleštěných zbrojích, ale otěží se záměrem jeho záchrany by se naopak chopili zatracenci a zločinci odsouzení na smrt? Ve hře se ujímáte role usvědčeného a odsouzeného vraha, který se s partou neméně pochybných existencí vydal na dlouhou výpravu skrze jižní Aventurii, jejímž cílem je zabránit pádu světa do temnoty. Postupem skrze kapitoly se postupně dovíte více a více v příběhu plném intrik a nečekaných zvratů, v němž o morální rozhodnutí není nouze. Jak daleko zajdete, aby jste dosáhli svých cílů? The Dark Eye:Blackguards je turn-based RPG od společnosti Daedalic Entertainment. Čeká vás 180 plně trojrozměrných map s řadou interaktivních objektů pro tahové souboje na (do hexagonů rozdělených) bojových polích. Vypomoci si lze v taktických bitvách i více jak 40 speciálními schopnostmi vašich antihrdinů a více jak 90 kouzly</column>
+            <column name="picture">blackguard.jpg</column>
+            <column name="price">209</column>
+            <column name="uploaded">2016-07-14 00:00:00</column>
+            <column name="sold">150</column>
+            <column name="in_stock">0</column>
+            <column name="delivery_time">2</column>
+        </table>
+        <table name="product">
+            <column name="product_id">3</column>
+            <column name="platform_name">PC</column>
+            <column name="genre_name">Strategie</column>
+            <column name="product_name">Cossacks 3</column>
+            <column name="description">Klasická real-time strategie se po dlouhých letech vrací. Znovu vás čeká taktický výcvik jednotek, stavba budov a těžba surovin. Hra se tradičně odehrává v 17. a 18. století s 12 hratelnými národy. Do rukou se vám dostane až 10 000 jednotek současně.Po vydání na vás čeká pět historických kampaní pro jednoho hráče a další budou přibývat v aktualizacích zdarma. Včetně dalších 8 národů, jejichž celkový počet se zastaví na 20. V základní hře to budou Rakousko, Francie, Anglie, Španělsko, Rusko, Ukrajina, Polsko, Švédsko, Prusko, Benátky, Turecko a Alžírsko.V multiplayeru může proti sobě hrát až 8 hráčů, jak v týmech tak i proti počítači. Bitvy budou probíhat na náhodně vygenerovaných mapách.Herní mechanizmy budou kompletně vycházet z prvního dílu Cossacks, který mají hráči dodnes nejraději. Není to však rozhodně finální stav. Hratelnost budou vývojáři z počátku upravovat dle reakcí fanoušku, aby byla opravdu přesně taková, jakou si přejí.</column>
+            <column name="picture">cossacks.jpg</column>
+            <column name="price">549</column>
+            <column name="uploaded">2016-09-20 00:00:00</column>
+            <column name="sold">30</column>
+            <column name="in_stock">10</column>
+            <column name="delivery_time">3</column>
+        </table>
+        <table name="product">
+            <column name="product_id">4</column>
+            <column name="platform_name">XONE</column>
+            <column name="genre_name">Sportovní</column>
+            <column name="product_name">FIFA 17</column>
+            <column name="description">FIFA 17 poprvé využívá nekompromisního výkonu enginu Frostbite a přináší tak revoluci do samotné hratelnosti a prožitku ze hry. Těšit se můžete na inovace ve způsobu myšlení a pohybu fotbalistů či fyzickém kontaktu s protivníky. To vám umožní účinný přechod do ofenzívy, čímž si podmaníte každý okamžik na hřišti. Vůbec poprvé v historii hra nabídne také příběhovou kampaň pro jednoho hráče.Poprvé v sérii FIFA budete moct prožít svůj příběh na hřišti i mimo něj jako Alex Hunter, vycházející hvězda Premier League. Podepište smlouvu s některým z klubů Premier League vedeného reálným trenérem, jenž má v týmu špičkové hráče z celého světa. Vstupte do nového světa a vydejte se na Cestu, na níž vás čeká plno vypjatých vzestupů i pádů. Je těsně před startem sezóny 2016/2017 a vy se ocitáte v roli Alexe Huntera, mladého nadějného Angličana na prahu kariéry v Premier League. Vaším úkolem je zdolat překážky, popasovat se s tíhou slavného fotbalového jména a vybudovat vlastní odkaz. Před Alexem stojí na hřišti, ale i mimo něj, řada velkých nástrah a obtížných rozhodnutí – vy teď máte šanci vydat se spolu s ním na Cestu a zažít fotbal ze strany, kterou důvěrně znají jen hráči nejvyšší soutěže. Jeden z předních enginů v herním průmyslu, Frostbite, přinese ve verzích pro Xbox One, PlayStation 4 a PC autentickou a realisticky zpracovanou akci, kterou hráči zakusí v nových fotbalových světech po boku barvitých postav s emocemi. Frostbite přináší do fotbalových světů ještě více detailů. Těšte se na zcela nová prostředí jako vstupní tunely, šatny, trenérovu kancelář nebo týmové letadlo. Čeká na vás skutečně působivý herní zážitek, který vás vtáhne do fotbalu a umožní vám prožít emoce tohoto sportu na hřišti i mimo něj.</column>
+            <column name="picture">fifa17.jpg</column>
+            <column name="price">1779</column>
+            <column name="uploaded">2016-09-16 00:00:00</column>
+            <column name="sold">200</column>
+            <column name="in_stock">0</column>
+            <column name="delivery_time">4</column>
+        </table>
+        <table name="product">
+            <column name="product_id">5</column>
+            <column name="platform_name">X360</column>
+            <column name="genre_name">Adventury</column>
+            <column name="product_name">Terraria</column>
+            <column name="description">Kopejte, bojujte, objevujte, stavějte! Nic není nemožné v této akčně napěchované dobrodružné hře. Svět je vaším plátnem a samotný terén je vaší barvou. Seberte své nástroje a běžte! Vyrobte zbraně k přemožení různých nepřátel z mnoha biomů. Vykopejte hluboká podzemí k nalezení doplňků, peněz a jiných užitečných věcí. Shromážděte zdroje k vytvoření všeho, co je zapotřebí, aby se stal svět vaším vlastním. Postavte dům, pevnost nebo dokonce zámek. Lidé se tam nastěhují, možná vám dokonce prodají i různá zboží, aby vám vypomohli na vaší cestě. Mějte se však na pozoru, jsou tu daleko větší výzvy, které vás ještě čekají... Jste na ně připraveni?</column>
+            <column name="picture">terraria.jpg</column>
+            <column name="price">549</column>
+            <column name="uploaded">2016-09-08 00:00:00</column>
+            <column name="sold">10</column>
+            <column name="in_stock">10</column>
+            <column name="delivery_time">5</column>
+        </table>
+        <table name="product">
+            <column name="product_id">6</column>
+            <column name="platform_name">PS4</column>
+            <column name="genre_name">Simulátory</column>
+            <column name="product_name">F1 2016</column>
+            <column name="description">Vytvořte si vlastní legendu formule 1. V novém ročníku se vrací propracovaná kariéra, kde během deseti sezón získáte šanci ukázat co ve vás je. Nejprestižnější motorsport na světě ale není žádná selanka. Ihned nebudete na stupních vítězů, ale musíte se na ně propracovat poctivou dřinou. Hra zahrnuje kompletní sezónu 2016 se všemi 21 tratěmi, 22 jezdci a 11 týmy. Poprvé se tak projedete po novém pouličním okruhu Baku v Ázerbájdžánu. Na trať se vrací oblíbený Safety Car a poprvé zde bude Virtuální Safety Car. Aktuální ročník nabídne také vhled do samotného vývoje vozů. Budete spolupracovat se svým agentem, inženýry a celým týmem na vývoji svého vozu, aby mohl být tím nejrychlejším na startovní čáře.</column>
+            <column name="picture">f12016.png</column>
+            <column name="price">1699</column>
+            <column name="uploaded">2016-09-09 00:00:00</column>
+            <column name="sold">5000</column>
+            <column name="in_stock">0</column>
+            <column name="delivery_time">1</column>
+        </table>
+        <table name="product">
+            <column name="product_id">7</column>
+            <column name="platform_name">PS3</column>
+            <column name="genre_name">Akční</column>
+            <column name="product_name">Assassins Creed 4: Black Flag</column>
+            <column name="description">Série s milióny prodaných kusů na svém kontě se nám rozrůstá o další díl. Zapomeňte na hrdiny, z dějů minulých, poznejte nové pohledy, nové hrdiny a nové prostředí, plavte se po černou vlajkou a zakuste sílu moře a větru! Velte své lodi a staňte se hrozbou pro obchodníky. Přichází nová doba a už nyní, je čas na změnu. Assassins Creed IV: Black Flag přichází a bude tu již tento rok.Assassins Creed IV Black Flag vypráví příběh Edwarda Kenwaye, mladého Brita s touhou po nebezpečí a dobrodružství. Edward je nelítostný pirát a zkušený bojovník, který se zaplete do starověké války mezi templáři a asasíny. Hra se odehrává na počátku 18. století a obsahuje jména některých z nejznámějších pirátů historie jako Blackbeard či Charles Vane a zavede hráče na cestu po celé západní Indii v době, jenž je nazývána zlatý věk pirátů.</column>
+            <column name="picture">Assassins_Creed_IV_Black_Flag.jpg</column>
+            <column name="price">499</column>
+            <column name="uploaded">2016-09-04 00:00:00</column>
+            <column name="sold">300</column>
+            <column name="in_stock">10</column>
+            <column name="delivery_time">1</column>
+        </table>
+        <table name="product">
+            <column name="product_id">8</column>
+            <column name="platform_name">PC</column>
+            <column name="genre_name">Adventury</column>
+            <column name="product_name">Broken Age</column>
+            <column name="description">Klasická adventura ze staré školy od legendárního Tima Schafera. Ve hře budete sledovat příběh dvou zdánlivě nesouvisejících postav. Chlapce ve vesmírné lodi Shaye, který nekonečně pluje vesmírem a dívky Velly v pohádkovém království, jenž se má stát obětí obávané nestvůry.Broken Age se zapsal jako průlomový projekt na Kickstarteru a díky nečekaně vysoké vybrané částce se projekt uskutečnil. Zároveň se stal tak obsáhlým titulem, že musel být rozdělen a nyní se dočkáme jeho prvního dílu. Vrhněte se do světa snů, světa plného ambicí, světa kde musíte přežít a kde prožíváte paralelně dva příběhy. Chlapce Shay na kosmické lodi, jenž se snaží uniknout ze spárů diktátorského palubního počítače a dívky Vella v pohádkovém království, kde oběť panen přináší záchranu, ale je tomu opravdu tak. Hra Vám umožní kdykoliv přepínat mezi hrdiny, proto se připravte na příběh příběhů a poznejte nepoznané.</column>
+            <column name="picture">broken_age.png</column>
+            <column name="price">699</column>
+            <column name="uploaded">2016-09-03 00:00:00</column>
+            <column name="sold">145</column>
+            <column name="in_stock">0</column>
+            <column name="delivery_time">2</column>
+        </table>
+        <table name="product">
+            <column name="product_id">9</column>
+            <column name="platform_name">PC</column>
+            <column name="genre_name">Akční</column>
+            <column name="product_name">7 Days to Die</column>
+            <column name="description">7 Days to Die vykrádá Minecraft a DayZ a vypadá velice dobře. Hráči v této survival hře s otevřeným světem mohou prozkoumávat divočinu, shromažďovat suroviny a vytvářet si své vlastní nástroje, zbraně, opevnění a pasti kolem svých příbytků, které si také musí ze surovin vybudovat. Hlavním úkolem je ale přežít ve světě plném zombie. </column>
+            <column name="picture">7days.jpg</column>
+            <column name="price">749</column>
+            <column name="uploaded">2016-09-01 00:00:00</column>
+            <column name="sold">800</column>
+            <column name="in_stock">10</column>
+            <column name="delivery_time">3</column>
+        </table>
+        <table name="product">
+            <column name="product_id">10</column>
+            <column name="platform_name">PC</column>
+            <column name="genre_name">Plošinovky</column>
+            <column name="product_name">Deadlight: Directors Cut</column>
+            <column name="description">Hororová zombie plošinovka ve vylepšené Directors Cut edici. Čeká vás upravené ovládání, vyladěné animace a celá řada dalších úprav. A k tomu také nový mód Survival Arena, který prověří vaše schopnosti přežít mezi zombie.Děj se odehrává v alternativní minulosti roku 1986 a vypráví příběh Randalla Waynea. Randall je introvert a lehce paranoidní přeživší, jenž se snaží ve světě zničeném zombie apokalypsou najít své blízké. Z ulic zničeného Seattlu, přes rozpadlé kanalizace a zbytky zničeného stadionu budete cestovat směrem k bájnému místu jménem Safe Point.</column>
+            <column name="picture">deadlight.jpg</column>
+            <column name="price">599</column>
+            <column name="uploaded">2016-08-17 00:00:00</column>
+            <column name="sold">900</column>
+            <column name="in_stock">0</column>
+            <column name="delivery_time">4</column>
+        </table>
+        <table name="product">
+            <column name="product_id">11</column>
+            <column name="platform_name">PC</column>
+            <column name="genre_name">Simulátory</column>
+            <column name="product_name">BeamNG.drive </column>
+            <column name="description">Nejrealističtější simulace automobilových nehod BeamNG Drive je závodní hrou, která se soustředí zejména na realistické pojetí fyziky a demolice. Je postavena na CryEngine 3, ale notně vylepšeném o vlastní fyzikální soft-body engine (deformovatelné objekty), který nemá konkurenci v existujících, ani připravovaných projektech. Jde o revoluci v tom, jak se hry hýbou, ne jak vypadají, což je také jednou z hlavních vizí celého projektu. </column>
+            <column name="picture">beamng.jpg</column>
+            <column name="price">799</column>
+            <column name="uploaded">2016-08-12 00:00:00</column>
+            <column name="sold">785</column>
+            <column name="in_stock">10</column>
+            <column name="delivery_time">5</column>
+        </table>
+        <table name="product">
+            <column name="product_id">12</column>
+            <column name="platform_name">PC</column>
+            <column name="genre_name">Sportovní</column>
+            <column name="product_name">Blood Bowl 2</column>
+            <column name="description">Hra Blood Bowl 2, která v sobě snoubí Warhammer a americký fotbal, představuje výbušný koktejl tahové strategie, humoru a brutality podle slavné deskové hry od Games Workshop.Nový grafický engine hry Blood Bowl 2 a ctižádostivá realizace přinášejí věrné vyobrazení zuřivé a intenzivní klasiky zápasů v Blood Bowlu. V režimu sólové hry povedete slavné Reikland Reavers, někdejší hvězdný tým v Blood Bowlu. Budete mít za úkol vrátit jim zašlou slávu v příběhové kampani podpořené třeskutě vtipným komentářem Jima a Boba z Cabalvision. Každý zápas v kampani je jedinečný, obsahuje nečekané a překvapivé zvraty, takže zážitek je pokaždé jiný! Režimy pro více hráčů jsou větší a bohatší než kdy dřív. V trvalém online režimu si můžete vytvořit a spravovat vlastní tým složený z jedné z osmi ras ze světa Warhammer – těmi jsou lidé, orkové, trpaslíci, skaveni, vyšší elfové, temní elfové, chaoti a nováčci z Bretonnie. Svůj tým budete rozvíjet, získávat zkušenosti a odemykat si nové schopnosti. Ale pozor! Veškeré ztráty na hřišti jsou trvalé... Pořádejte kompletně upravitelné turnaje od kvalifikace až po finále a pomocí nového trhu přestupů nakupujte a prodávejte své hráče a sestavte si vlastní bloodbowlový tým snů! </column>
+            <column name="picture">bloodbowl.jpg</column>
+            <column name="price">599</column>
+            <column name="uploaded">2016-09-30 00:00:00</column>
+            <column name="sold">789</column>
+            <column name="in_stock">0</column>
+            <column name="delivery_time">1</column>
+        </table>
+        <table name="product">
+            <column name="product_id">13</column>
+            <column name="platform_name">PS3</column>
+            <column name="genre_name">Akční</column>
+            <column name="product_name">Alien: Isolation</column>
+            <column name="description">Poznejte skutečný význam slova strach v Alien: Isolation, hře žánru &quot;survival horror&quot; zasazené do atmosféry neutuchající hrůzy a smrtelného nebezpečí. Patnáct let po událostech z filmu Vetřelec se Amanda, dcera Ellen Ripleyové, vydává zjistit pravdu o zmizení své matky, a tím začíná její vlastní zoufalý boj o přežití. V roli Amandy se budete pohybovat v neuvěřitelně nepřátelském světě, obklopeni zoufalými a zpanikařenými lidmi a ohrožováni nepředvídatelným a nemilosrdným vetřelcem. Bez speciální výbavy či přípravy musíte hledat improvizovaná řešení nejrůznějších situací, používat svůj důvtip a okolní předměty a zařízení. Ne jen proto, abyste ve své misi uspěli, ale abyste vůbec zůstali naživu.</column>
+            <column name="picture">alien_isolation_ps3.jpg</column>
+            <column name="price">599</column>
+            <column name="uploaded">2016-09-17 00:00:00</column>
+            <column name="sold">320</column>
+            <column name="in_stock">10</column>
+            <column name="delivery_time">2</column>
+        </table>
+        <table name="product">
+            <column name="product_id">14</column>
+            <column name="platform_name">PS3</column>
+            <column name="genre_name">RPG</column>
+            <column name="product_name">Atelier Shallie: Alchemists of the Dusk Sea</column>
+            <column name="description">Vyberte si, zda budete hrát za odměřenou a soustředěnou Shallisteru, nebo za ambiciozní a energickou Shallotte. Ač mají odlišný vzhled i mentalitu, obě mají shodnou přezdívku &quot;Shallie&quot;. Shallistera je dcerou klanového vůdce, která se vydává na výpravu za vyřešením potíží, které postihly její domovinu. Shallotte se pro změnu snaží proslavit na poli alchymie. Zakuste příběh z pohledu obou dívek v této hře, která zahrnuje mnoho odboček a různých zakončení pro každou z nich. Další pokračování japonského RPG z řady Atelier, ve kterém máme možnost hrát hned za dvě alchymistky. Hra opět nabízí klasické možnosti alchymistických her, které spočívají v přípravě, sbírání ingrediencí, vyrábění předmětů a jejich používání v soubojích. Chybět samozřejmě nebude ani systém vylepšování postavy.</column>
+            <column name="picture">Atelier_Shallie_cover.jpg</column>
+            <column name="price">1199</column>
+            <column name="uploaded">2016-10-02 00:00:00</column>
+            <column name="sold">753</column>
+            <column name="in_stock">0</column>
+            <column name="delivery_time">1</column>
+        </table>
+        <table name="product">
+            <column name="product_id">15</column>
+            <column name="platform_name">PS3</column>
+            <column name="genre_name">Simulátory</column>
+            <column name="product_name">Farming Simulator 2015 </column>
+            <column name="description">Farming Simulator 15 vás zve do náročného světa moderního farmaření. Postavte se výzvám farmářského života včetně chovu zvířat jako krávy, slepice a ovce, pěstování plodin a jejich prodeje. Starejte se o svou farmu a rozvíjejte ji v obrovském otevřeném světě, které nyní obsahuje i zcela nové severské prostředí. Seznamte se s obyvateli, kteří vám zadají úkoly, a dokažte, že jste všestranně nadaný farmář! Farming Simulator 15 představuje novou aktivitu: kácení stromů! Starejte se o les na své mapě pomocí nových dostupných vozidel a strojů jako třeba nákladních vozů na klády, motorových pil, štěpkovačů a přívěsů. Aby byla vaše vozidla čistá, navštěvujte pravidelně myčky. Kdo by ve své garáži chtěl špinavý traktor? Farming Simulator 15 také přichází s online režimy a službami. Starejte se o farmu až s 10 přáteli online nebo na místní síti. Také můžete sdílet modifikace, vozidla a vybavení s hráči z celého světa, což vám umožní v podstatě neomezený obsah a bezpočet hodin herní doby! </column>
+            <column name="picture">farmingcover.jpg</column>
+            <column name="price">999</column>
+            <column name="uploaded">2016-09-21 00:00:00</column>
+            <column name="sold">667</column>
+            <column name="in_stock">9</column>
+            <column name="delivery_time">2</column>
+        </table>
+        <table name="product">
+            <column name="product_id">16</column>
+            <column name="platform_name">PS3</column>
+            <column name="genre_name">Sportovní</column>
+            <column name="product_name">NBA 2K15</column>
+            <column name="description">NBA 2K15 je pokračováním série simulátorů NBA a její tváří se tento rok stal čtyřnásobný šampion bodování NBA a nedávno korunovaný držitel ceny pro nejužitečnějšího hráče NBA pro rok 2014, Kevin Durant z Oklahoma City Thunder. Nový díl zároveň představuje opravdovou next gen sportovní hru, kde je kladen důraz na reálnost pohybů postav, každého svalu a i fyziku míče. Hru NBA 2K15 vyvíjí Visual Concepts.</column>
+            <column name="picture">NBA_2K15_cover_art.jpg</column>
+            <column name="price">699</column>
+            <column name="uploaded">2016-08-13 00:00:00</column>
+            <column name="sold">1945</column>
+            <column name="in_stock">0</column>
+            <column name="delivery_time">3</column>
+        </table>
+        <table name="product">
+            <column name="product_id">17</column>
+            <column name="platform_name">PS4</column>
+            <column name="genre_name">Adventury</column>
+            <column name="product_name">Batman: The Telltale Series </column>
+            <column name="description">Objevte dalekosáhlé následky svých rozhodnutí jako Temný rytíř. Mistři epizodických filmových her z Telltale představují svoji zatím nejambicióznější hru. Jako Batman narazíte na klasické spojence i protivníky a jako Bruce Wayne pocítíte co opravdu znamená, býti mužem v kápi.Drsný a násilný příběh od autorů herní série The Walking Dead otřese jak samotným Brucem, tak i už tak křehkou stabilitou Gotham City. Vaše volby v průběhu hry vytvoří novou kapitolu v životě výstředního průmyslníka a netopýřího detektiva.</column>
+            <column name="picture">Batman-The-Telltale-Series-ps4-free-download.jpg</column>
+            <column name="price">899</column>
+            <column name="uploaded">2016-09-30 00:00:00</column>
+            <column name="sold">3700</column>
+            <column name="in_stock">8</column>
+            <column name="delivery_time">4</column>
+        </table>
+        <table name="product">
+            <column name="product_id">18</column>
+            <column name="platform_name">PS4</column>
+            <column name="genre_name">Akční</column>
+            <column name="product_name">Aegis of Earth: Protonovus Assault</column>
+            <column name="description">Frenetická akční strategie, kde budete plánovat a budovat svoji obranu proti hordám monstrózních nepřátel. Ti totiž mají v plánu vyhladit vás z povrchu zemského, jelikož vaše město je poslední baštou lidstva.Zapojte se do dynamické obrany města pomocí revoluční herní mechaniky, ve které otáčíte celým svým městem při míření na nepřátele. Neponechejte žádný kvadrant nedotčený, nepřátelé pochodují ze všech stran!Budete velet a zlepšovat pestrou nabídku jednotek a obřích zbraní. Díky napínavým herním mechanikám budete stále ve středu dění. Decimujte nepřátelské řady nepusťte je ani na krok do vašeho města.</column>
+            <column name="picture">Aegis_of_Earth_Vita_cover_art.jpg</column>
+            <column name="price">1399</column>
+            <column name="uploaded">2016-10-12 00:00:00</column>
+            <column name="sold">1564</column>
+            <column name="in_stock">0</column>
+            <column name="delivery_time">5</column>
+        </table>
+        <table name="product">
+            <column name="product_id">19</column>
+            <column name="platform_name">PS4</column>
+            <column name="genre_name">Plošinovky</column>
+            <column name="product_name">Super Meat Boy</column>
+            <column name="description">Super Meat Boy je plošinovka kde hrajete za kostku masa, která se snaží zachránit svou přítelkyni před zlým zárodkem v nádobě, který je oblečený ve smokingu. Náš masitý hrdina bude skákat ze zdí, přes moře cirkulárek, skrz hroutící se jeskyně a bazény použitých jehel. Obětuje svoje vlastní pohodlí, aby zachránil svou dámu v nesnázích. Super Meat Boy přináší obtížnost ze staré školy - z klasických NES titulů jako Mega Man 2, Ghost and Goblins a Super Mario Bros. 2 (japonské verze) a přivádí je zpět k dokonalému a základnímu skákání. Zvyšující se obtížnost, od těžké po ničící duši, dovede Meat boye skrz staré nepoužívané nemocnice, továrny na sůl a dokonce do samotného pekla.A pokud by přes 300 single player úrovní nebylo dost, Super Meat Boy přidá navíc neuvěřitelné souboje s bossy, editor úrovní a hromadu odemykatelných secretů, pokřivené zóny a skryté postavy.</column>
+            <column name="picture">936full-super-meat-boy-cover.jpg</column>
+            <column name="price">599</column>
+            <column name="uploaded">2016-10-16 00:00:00</column>
+            <column name="sold">1240</column>
+            <column name="in_stock">4</column>
+            <column name="delivery_time">1</column>
+        </table>
+        <table name="product">
+            <column name="product_id">20</column>
+            <column name="platform_name">PS4</column>
+            <column name="genre_name">RPG</column>
+            <column name="product_name">Dark Souls III</column>
+            <column name="description">Pokračování dnes již legendární RPG série vám opět nedá nic zadarmo. Ať už jste nováček nebo Souls fanoušek, čeká vás jen to nejhorší. Opět se až po uši ponoříte do temného fantasy světa, okusíte nelítostnou krutost a ztratíte pojem o čase. To vše díky brutální, ale férové hratelnosti a ohromující grafice. Světy Dark Souls jsou vždy unikátním zážitkem, který jinde nenajdete. Ve třetím díle tomu nebude jinak a rádi se v jeho dechberoucích temných kulisách budete opakovaně ztrácet a umírat. Samotný soubojový systém se dočkal spousty zpestření a úprav, ale stále vychází ze základů Souls série. Každá chyba je tedy po zásluze potrestána. Těšit se však můžete na ještě pestřejší paletu zbraní a unikátní herní styly.V Dark Souls III se představí nová verze unikátního online režimu, který tato série založila. Režim souvisle integruje všechny hráče a jednotlivé interakce do příběhu pro jednoho hráče.Díky dynamickému nasvícení a dalším vizuálním efektům se zcela ponoříte do temného fantasy světa. Světa plného zákeřných nástrah a děsivých nepřátel, před kterými budete zavírat oči.</column>
+            <column name="picture">darksouls3.jpg</column>
+            <column name="price">1699</column>
+            <column name="uploaded">2016-09-28 00:00:00</column>
+            <column name="sold">4425</column>
+            <column name="in_stock">0</column>
+            <column name="delivery_time">2</column>
+        </table>
+        <table name="product">
+            <column name="product_id">21</column>
+            <column name="platform_name">PS4</column>
+            <column name="genre_name">Sportovní</column>
+            <column name="product_name">NHL 17</column>
+            <column name="description">Prožijte svůj hokejový sen v nových režimech Draft šampionů a Světový pohár, podmaňte si led díky komplexnímu ovládání autenticky reagujících brankářů, zcela novému pojetí soubojů před brankou v útočné i obranné třetině a vylepšenému systému kolizní fyziky. Jednoduše ten nejlepší herní hokejový zážitek. To je NHL 17.Bez ohledu na způsob hraní vám NHL 17 nabízí nové režimy, v nichž si zahrajete za oblíbené týmy a hráče. V Draftu šampionů zažijte fiktivní draft, v němž si sestavíte tým plný hvězd, nebo na Světovém poháru zabojujte o národní čest. Fanoušci Be a GM se mohou těšit na evoluci ve správě týmu. Nově budete mít možnost dohlédnout na celý byznys v režimu Organizace, v němž vám připadne na starost vše od stánkového prodeje po přestěhování týmu. Pozvedněte svůj tým v EA SPORTS Hockey League na novou úroveň postupným odemykáním předmětů vlastní úpravy. Pomocí Editoru týmu pro EASHL a Be a Pro si upravte dresy k obrazu svému, nebo ve zcela novém Editoru stadionů v režimech EASHL a Organizace si vytvořte domácí halu, o které jste vždycky snili. Upravte si každičký detail od povrchu ledu přes gólové světlo a výsledkovou tabuli až po gólovou znělku a světelné efekty, které dodají šťávu důležitým momentům vašeho týmu.Hokejové zápasy se vyhrávají a prohrávají před brankou. Nový systém soubojů před brankou vám umožní porvat se o klíčový prostor v brankovišti, a to jak před vlastní, tak soupeřovou klecí. Brankáři působí autenticky díky svému vzhledu i chování doplněnému o realistické postoje a zásluhou dokonalejší umělé inteligence provádí lepší reflexivní zákroky – lépe čtou hru, a proto mohou zareagovat hbitým atletickým pohybem, nebo zablokovat puk tělem. Inovované hity, přihrávky, přebírání puku a bruslení vám dovolí získat navrch v každé části kluziště. </column>
+            <column name="picture">ps4-nhl-17_ie1422763.jpg</column>
+            <column name="price">1799</column>
+            <column name="uploaded">2016-10-15 00:00:00</column>
+            <column name="sold">325</column>
+            <column name="in_stock">10</column>
+            <column name="delivery_time">3</column>
+        </table>
+        <table name="product">
+            <column name="product_id">22</column>
+            <column name="platform_name">PS4</column>
+            <column name="genre_name">Strategie</column>
+            <column name="product_name">Dungeons 2</column>
+            <column name="description">Pán jeskyně se vrací – a tentokrát to myslí vážně! V Dungeons 2 uhasíte neukojitelnou žízeň Temného pána po pomstě a najmete si děsuplná nová monstra ze všech koutů podsvětí, aby vykonávala vaše zlé rozkazy. Převzít vládu nad podsvětím však nestačí – tentokrát Pán jeskyně rozšíří svou moc i na lidské červy a pokusí se ovládnout náš svět. Ujměte se role mocného Pána jeskyně a vybudujte síť jedinečných a hrůzostrašných jeskyní. Najměte si armádu strašlivých příšer a ovládněte dvě nové frakce. Připravte se na obranu svého království proti těm vlezlým hrdinům nebo vyjděte na povrch a veďte válku s jejich lidskými městy. Pomocí „Ruky hrůzy“ přímo ovládejte své poskoky, vydávejte rozkazy a nebojte se někoho pořádně proplesknout, aby sekal latinu. Rozsáhlá příběhová kampaň je nabita ještě temnějším humorem, který proslavil původní Dungeons. Navíc je opepřena řadou narážek na různé fantasy knihy, filmy a seriály. Své schopnosti můžete vyzkoušet ve čtyřech různých herních režimech až pro čtyři další Pány jeskyně přes LAN či online.</column>
+            <column name="picture">dungeons(1).jpg</column>
+            <column name="price">999</column>
+            <column name="uploaded">2016-10-22 00:00:00</column>
+            <column name="sold">123</column>
+            <column name="in_stock">0</column>
+            <column name="delivery_time">4</column>
+        </table>
+    </database>
+</pma_xml_export>
